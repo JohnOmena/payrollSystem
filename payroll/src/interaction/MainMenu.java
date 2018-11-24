@@ -1,7 +1,7 @@
-package payroll;
+package interaction;
 import java.util.Scanner;
 
-public class Interface {
+public class MainMenu {
 	
 	public static void mainMenu() {
 		

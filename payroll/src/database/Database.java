@@ -1,4 +1,4 @@
-package payroll;
+package database;
 
 public class Database {
 

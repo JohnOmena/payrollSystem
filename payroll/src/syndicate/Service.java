@@ -1,4 +1,4 @@
-package payroll;
+package syndicate;
 
 public class Service {
 
