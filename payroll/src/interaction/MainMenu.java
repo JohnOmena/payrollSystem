@@ -2,16 +2,19 @@ package interaction;
 import java.util.Scanner;
 import company.Employee;
 import company.Sale;
+import company.TimeCard;
 import database.AffiliateDatabase;
 import database.EmployeeDatabase;
 import database.SaleDatabase;
 import database.ServiceDatabase;
+import database.TimeCardDatabase;
+import syndicate.Service;
 import useful.Utilities;
 
 public class MainMenu {
 	
 	
-	public void mainMenu(EmployeeDatabase empData, SaleDatabase saleData, AffiliateDatabase affilData, ServiceDatabase servData, Utilities utilities) {
+	public void mainMenu(EmployeeDatabase empData, SaleDatabase saleData, AffiliateDatabase affilData, ServiceDatabase servData, TimeCardDatabase timeData, Utilities utilities) {
 		
 		utilities.cleanScreen();
 		Scanner input = new Scanner(System.in);
@@ -19,7 +22,6 @@ public class MainMenu {
 		System.out.println("------------------------");
 		System.out.println("#       Main Menu      #");
 		System.out.println("------------------------");
-		System.out.println("1 - Add employee");
 		System.out.println("1 - Add employee");
 		System.out.println("2 - Remove employee");
 		System.out.println("3 - Launch time card");
@@ -38,37 +40,43 @@ public class MainMenu {
 		MainMenu main = new MainMenu();
 		int option = input.nextInt();
 		
-		main.mainMenuDecision(option, empData, saleData, affilData, servData, main, utilities);
+		main.mainMenuDecision(option, empData, saleData, affilData, servData, timeData, main, utilities);
 		
 	}
 	
-	public void mainMenuDecision(int option, EmployeeDatabase empData, SaleDatabase saleData, AffiliateDatabase affilData, ServiceDatabase servData, MainMenu main, Utilities utilities) {
+	public void mainMenuDecision(int option, EmployeeDatabase empData, SaleDatabase saleData, AffiliateDatabase affilData, ServiceDatabase servData, TimeCardDatabase timeData, MainMenu main, Utilities utilities) {
 		
 		Employee employee = new Employee();
 		Sale sale = new Sale();
+		TimeCard timeCard = new TimeCard();
+		Service service = new Service();
 		
 		switch(option) {
 		
 			case 1:
 				utilities.cleanScreen();
 				empData.addEmployee(employee.createEmployee());
-				main.mainMenu(empData, saleData, affilData, servData, utilities);
+				main.mainMenu(empData, saleData, affilData, servData, timeData, utilities);
 				break;
 			case 2:
 				utilities.cleanScreen();
 				empData.removeEmployee();
-				main.mainMenu(empData, saleData, affilData, servData, utilities);
+				main.mainMenu(empData, saleData, affilData, servData, timeData, utilities);
 				break;
 			case 3:
 				utilities.cleanScreen();
-				saleData.addSale(sale.createSale());
-				
+				timeData.addTimeCard(timeCard.createTimeCard());
+				main.mainMenu(empData, saleData, affilData, servData, timeData, utilities);
 				break;
 			case 4:
-				
+				utilities.cleanScreen();
+				saleData.addSale(sale.createSale());
+				main.mainMenu(empData, saleData, affilData, servData, timeData, utilities);
 				break;
 			case 5:
-				
+				utilities.cleanScreen();
+				servData.addService(service.createService());
+				main.mainMenu(empData, saleData, affilData, servData, timeData, utilities);
 				break;
 			case 6:
 				

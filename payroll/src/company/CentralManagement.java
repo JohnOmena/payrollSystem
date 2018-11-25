@@ -3,6 +3,7 @@ import database.AffiliateDatabase;
 import database.EmployeeDatabase;
 import database.SaleDatabase;
 import database.ServiceDatabase;
+import database.TimeCardDatabase;
 import interaction.MainMenu;
 import useful.Utilities;
 
@@ -14,10 +15,11 @@ public class CentralManagement {
 		SaleDatabase saleData = new SaleDatabase();
 		AffiliateDatabase affilData = new AffiliateDatabase();
 		ServiceDatabase servData = new ServiceDatabase();
+		TimeCardDatabase timeData = new TimeCardDatabase();
 		Utilities utilities = new Utilities();
 		MainMenu menu = new MainMenu();
 		
-		menu.mainMenu(empData, saleData, affilData, servData, utilities);
+		menu.mainMenu(empData, saleData, affilData, servData, timeData, utilities);
 		
 	}
 
