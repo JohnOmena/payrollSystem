@@ -2,7 +2,7 @@ package enums;
 
 public enum EmployeeType {
 	
-	commissioned,
+	commissionedSalaried,
 	salaried,
 	hourly;
 	

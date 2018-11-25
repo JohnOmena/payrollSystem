@@ -1,10 +1,19 @@
 package interaction;
 import java.util.Scanner;
+import company.Employee;
+import company.Sale;
+import database.AffiliateDatabase;
+import database.EmployeeDatabase;
+import database.SaleDatabase;
+import database.ServiceDatabase;
+import useful.Utilities;
 
 public class MainMenu {
 	
-	public static void mainMenu() {
+	
+	public void mainMenu(EmployeeDatabase empData, SaleDatabase saleData, AffiliateDatabase affilData, ServiceDatabase servData, Utilities utilities) {
 		
+		utilities.cleanScreen();
 		Scanner input = new Scanner(System.in);
 		
 		System.out.println("------------------------");
@@ -26,23 +35,33 @@ public class MainMenu {
 		System.out.println("--------------------------");
 		System.out.println("Choose an option: ");
 		
+		MainMenu main = new MainMenu();
 		int option = input.nextInt();
 		
-		
+		main.mainMenuDecision(option, empData, saleData, affilData, servData, main, utilities);
 		
 	}
 	
-	public void mainMenuDecision(int option) {
+	public void mainMenuDecision(int option, EmployeeDatabase empData, SaleDatabase saleData, AffiliateDatabase affilData, ServiceDatabase servData, MainMenu main, Utilities utilities) {
+		
+		Employee employee = new Employee();
+		Sale sale = new Sale();
 		
 		switch(option) {
-			
+		
 			case 1:
-				
+				utilities.cleanScreen();
+				empData.addEmployee(employee.createEmployee());
+				main.mainMenu(empData, saleData, affilData, servData, utilities);
 				break;
 			case 2:
-				
+				utilities.cleanScreen();
+				empData.removeEmployee();
+				main.mainMenu(empData, saleData, affilData, servData, utilities);
 				break;
 			case 3:
+				utilities.cleanScreen();
+				saleData.addSale(sale.createSale());
 				
 				break;
 			case 4:

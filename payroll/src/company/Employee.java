@@ -1,13 +1,16 @@
 package company;
-import database.EmployeeDatabase;
+import java.util.Scanner;
+import enums.EmployeeType;
 
 public class Employee {
 
 	String name;
 	String adress;
 	String type;
-	int comissionRate;
+	double comissionRate;
 	int identicalNumber;
+	Scanner input = new Scanner(System.in);
+	
 	
 	public void setName(String name) {
 		this.name = name;
@@ -41,14 +44,37 @@ public class Employee {
 		return identicalNumber;
 	}
 	
-	public void setComissionRate(int comissionRate) {
+	public void setComissionRate(double comissionRate) {
 		this.comissionRate = comissionRate;
 	}
 	
-	public int getComissionRate() {
+	public double getComissionRate() {
 		return comissionRate;
 	}
 	
-	
+	public Employee createEmployee() {
+		
+		Employee employee = new Employee();
+		
+		System.out.println("Name: ");
+		String name = input.nextLine();
+		employee.setName(name);
+		
+		System.out.println("Adress: ");
+		String adress = input.nextLine();
+		employee.setAdress(adress);
+		
+		System.out.println("Type: hourly, salaried or comissionedSalaried?");
+		String type = input.nextLine();
+		employee.setType(type);
+		
+		if(EmployeeType.commissionedSalaried.equals(type)){
+			System.out.println("How much is the commission rate?");
+			double comissionRate = input.nextDouble();
+			employee.setComissionRate(comissionRate);
+		}
+		
+		return employee;
+	}
 	
 }

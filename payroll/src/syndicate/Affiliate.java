@@ -1,16 +1,15 @@
 package syndicate;
-
-public class Affliliate {
+public class Affiliate {
 	
-	String affliliateName;
+	String affiliateName;
 	int identicalAffiliate;
 	
 	public void setAffliliateName(String affliliateName) {
-		this.affliliateName = affliliateName;
+		this.affiliateName = affliliateName;
 	}
 	
 	public String getAffliliateName() {
-		return affliliateName;
+		return affiliateName;
 	}
 	
 	public void setIdenticalAffiliate(int identicalAffiliate) {

@@ -30,5 +30,14 @@ public class Sale {
 		return employeeIdenticalNumber;
 	}
 	
-	
+	public Sale createSale() {
+		
+		Sale sale = new Sale();
+		
+		System.out.println("Name of the product?");
+		
+		
+		return sale;
+	}
+
 }
