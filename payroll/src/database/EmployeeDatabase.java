@@ -1,7 +1,6 @@
 package database;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import company.Employee;
 
 public class EmployeeDatabase {
@@ -21,8 +20,6 @@ public class EmployeeDatabase {
 		employee.setIdenticalNumber(this.countEmployeeHistory);
 		this.employees.add(employee);
 		this.countEmployeeHistory ++;
-		System.out.println("Employee added, press any key to return to the main menu.");
-		String pause = input.nextLine();
 	
 	}
 
@@ -35,12 +32,10 @@ public class EmployeeDatabase {
 		for(Employee empTemp : employees) {
 			if(empTemp.getName().equals(name)) {
 				employees.remove(empTemp);
+				break;
 			}
 		}
-		
-		System.out.println("Employee removed, press any key to return to the main menu.");
-		String pause = input.nextLine();
-		
+
 	}
 	
 	public Employee searchEmployee(String name) {
@@ -55,4 +50,31 @@ public class EmployeeDatabase {
 
 		return employee;
 	}
+
+	public void updateWorkerData(String name) {
+		
+		System.out.println("What is the new employee's name?");
+		String nameAtt = input.nextLine();
+		
+		System.out.println("What is the new adress?");
+		String adressAtt = input.nextLine();
+		
+		System.out.println("What is the new type of employee?");
+		String typeAtt = input.nextLine();
+		
+		System.out.println("What is the new paymentType? checkHands, checkMail or bankAccount?");
+		String paymentTypeAtt = input.nextLine();
+		
+	}
+	
+	public void printAllDatabase() {
+		
+		System.out.println("\nUpdated employee database:");
+		
+		for(Employee employee : this.employees) {
+			employee.printDataEmployee(employee);
+		}
+		
+	}
+	
 }

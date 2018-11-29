@@ -16,10 +16,9 @@ public class CentralManagement {
 		AffiliateDatabase affilData = new AffiliateDatabase();
 		ServiceDatabase servData = new ServiceDatabase();
 		TimeCardDatabase timeData = new TimeCardDatabase();
-		Utilities utilities = new Utilities();
 		MainMenu menu = new MainMenu();
 		
-		menu.mainMenu(empData, saleData, affilData, servData, timeData, utilities);
+		menu.mainMenu(empData, saleData, affilData, servData, timeData);
 		
 	}
 
