@@ -67,7 +67,7 @@ public class EmployeeDatabase {
 		
 	}
 	
-	public void printAllDatabase() {
+	public void printEmployeeDatabase() {
 		
 		System.out.println("\nUpdated employee database:");
 		

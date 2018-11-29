@@ -1,5 +1,4 @@
 package company;
-
 import java.util.Scanner;
 
 public class TimeCard {
@@ -19,6 +18,7 @@ public class TimeCard {
 	
 		if(hours > 8) {
 			this.extraHours = hours - 8;
+			this.workedHours = 8;
 		}
 		
 	}
@@ -46,6 +46,7 @@ public class TimeCard {
 		System.out.println("How many hours worked?");
 		int hours = input.nextInt();
 		timeCard.setHours(hours);
+		input.nextLine();
 		
 		System.out.println("What is the name of the worker?");
 		String employeeName = input.nextLine();
@@ -54,4 +55,12 @@ public class TimeCard {
 		return timeCard;
 	}
 
+	public void printDataTimeCard(TimeCard timeCard) {
+		
+		System.out.println("\nNormal hours: " + timeCard.getWorkedHours());
+		System.out.println("Extra hours: " + timeCard.getExtraHours());
+		System.out.println("EmployeeName: " + timeCard.getEmployeeName());
+		
+	}
+	
 }

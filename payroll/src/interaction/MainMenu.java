@@ -57,15 +57,17 @@ public class MainMenu {
 				Employee employee = new Employee();
 				employee = employee.createEmployee();
 				empData.addEmployee(employee);
-				empData.printAllDatabase();
+				empData.printEmployeeDatabase();
 				break;
 			case 2:
 				empData.removeEmployee();
-				empData.printAllDatabase();
+				empData.printEmployeeDatabase();
 				break;
 			case 3:
 				TimeCard timeCard = new TimeCard();
-				timeData.addTimeCard(timeCard.createTimeCard());
+				timeCard = timeCard.createTimeCard();
+				timeData.addTimeCard(timeCard);
+				timeData.printTimeCardDatabase();
 				break;
 			case 4:
 				Sale sale = new Sale();
